@@ -42,7 +42,7 @@ A Dataset can be constructed from JVM objects and then manipulated using functio
 [Window Functions](https://databricks.com/blog/2015/07/15/introducing-window-functions-in-spark-sql.html)
 
 
-# [Spark MLib](Machine Learning Library (MLlib))
+# [Spark MLib](https://spark.apache.org/mllib/)
 ## [Spark PipeLine](https://www.ibm.com/developerworks/cn/opensource/os-cn-spark-practice5/index.html)
 ## [DataTypes](https://spark.apache.org/docs/1.1.0/mllib-data-types.html)
 ### [StringIndexer- IndexToString-VectorIndexer](http://dblab.xmu.edu.cn/blog/1297-2/)
