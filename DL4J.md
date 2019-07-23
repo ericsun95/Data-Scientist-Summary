@@ -212,4 +212,5 @@ additional overhead of distributed training.
 [word2vecsentiment](https://github.com/deeplearning4j/dl4j-examples/tree/master/dl4j-examples/src/main/java/org/deeplearning4j/examples/recurrent/word2vecsentiment)
 [stock prediction](https://github.com/IsaacChanghau/StockPrediction/tree/master/src/main/java/com/isaac/stock)
 
-
+#### Courses
+[Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning)
