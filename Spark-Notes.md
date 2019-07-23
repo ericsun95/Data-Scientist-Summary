@@ -1,5 +1,6 @@
 # Background Knowledge
 ## The structure of the normal big data platform
+[大数据全体系年终总结](https://www.cnblogs.com/yangsy0915/p/6159756.html)
 <br> 底层HDFS，上面跑MapReduce／Tez／Spark，在上面跑Hive，Pig。或者HDFS上直接跑Impala，Drill，Presto。这解决了中低速数据处理的要求。<br>
 
 - [与 Hadoop 对比，如何看待 Spark 技术？](https://www.zhihu.com/question/26568496/answer/41608400)
@@ -30,6 +31,7 @@ param: loadDefaults whether to also load values from Java system properties
 
 # [Spark Session](https://blog.csdn.net/u013063153/article/details/54615378)
 SparkConf、SparkContext和SQLContext都已经被封装在SparkSession当中。
+[Difference between SparkContext, JavaSparkContext, SQLContext and SparkSession](https://stackoverflow.com/questions/43802809/difference-between-sparkcontext-javasparkcontext-sqlcontext-and-sparksession)
 
 # Basic Operation
 [map](https://www.zybuluo.com/jewes/note/35032)
@@ -95,3 +97,5 @@ https://databricks.com/blog/2015/06/22/understanding-your-spark-application-thro
 
 # [Spark Jobs Tuning](https://www.zybuluo.com/xiaop1987/note/76737)
 
+# Apache Zeppelin (https://www.iteblog.com/archives/1575.html)
+[可视化分析工具Apache Zeppelin](https://blog.csdn.net/majianxiong_lzu/article/details/89838774)
