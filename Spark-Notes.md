@@ -42,9 +42,10 @@ A Dataset can be constructed from JVM objects and then manipulated using functio
 [Window Functions](https://databricks.com/blog/2015/07/15/introducing-window-functions-in-spark-sql.html)
 
 
-# Spark MLib
-[Spark PipeLine](https://www.ibm.com/developerworks/cn/opensource/os-cn-spark-practice5/index.html)
-## [StringIndexer- IndexToString-VectorIndexer](http://dblab.xmu.edu.cn/blog/1297-2/)
+# [Spark MLib](Machine Learning Library (MLlib))
+## [Spark PipeLine](https://www.ibm.com/developerworks/cn/opensource/os-cn-spark-practice5/index.html)
+## [DataTypes](https://spark.apache.org/docs/1.1.0/mllib-data-types.html)
+### [StringIndexer- IndexToString-VectorIndexer](http://dblab.xmu.edu.cn/blog/1297-2/)
 StringIndexer是指把一组字符型标签编码成一组标签索引，索引的范围为0到标签数量，索引构建的顺序为标签的频率，优先编码频率较大的标签，
 所以出现频率最高的标签为0号。有的时候我们通过一个数据集构建了一个StringIndexer，然后准备把它应用到另一个数据集上的时候，
 会遇到新数据集中有一些没有在前一个数据集中出现的标签，这时候一般有两种策略来处理：第一种是抛出一个异常（默认情况下），
@@ -60,7 +61,7 @@ val index_transformers = featureCols.map(
    .setOutputCol(s"${cname}_index")
 )
 ```
-## One_hot_encoders
+### One_hot_encoders
 ```scala
 val index_transformers: Array[org.apache.spark.ml.PipelineStage] = stringColumns.map(
   cname => new StringIndexer()
@@ -68,7 +69,7 @@ val index_transformers: Array[org.apache.spark.ml.PipelineStage] = stringColumns
     .setOutputCol(s"${cname}_index")
 )
 ```
-## VectorAssembler
+### VectorAssembler
 setInputCol, setOutputCol
 
 从源数据中提取特征指标数据，这是一个比较典型且通用的步骤，因为我们的原始数据集里，经常会包含一些非指标数据，如 ID，Description 等。
