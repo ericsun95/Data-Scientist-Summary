@@ -207,7 +207,7 @@ additional overhead of distributed training.
 [CSV Example](https://github.com/deeplearning4j/dl4j-examples/blob/aeb002d151ffcf785a46aba45a722d189de2e0df/dl4j-examples/src/main/java/org/deeplearning4j/examples/dataexamples/CSVExample.java), 
 [Quickstart with Deeplearning4J](https://www.dubs.tech/guides/quickstart-with-dl4j/#using-the-model), 
 [dl4j-tutorials](https://github.com/sjsdfg/dl4j-tutorials)
-[Deeplearning4J Examples for Scala](https://github.com/kogecoo/dl4j-examples-scala)https://deeplearning4j.org/cn/examples-tour
+[Deeplearning4J Examples for Scala](https://github.com/kogecoo/dl4j-examples-scala)
 [dl4j-examples-tour](https://deeplearning4j.org/cn/examples-tour)
 [word2vecsentiment](https://github.com/deeplearning4j/dl4j-examples/tree/master/dl4j-examples/src/main/java/org/deeplearning4j/examples/recurrent/word2vecsentiment)
 [stock prediction](https://github.com/IsaacChanghau/StockPrediction/tree/master/src/main/java/com/isaac/stock)
