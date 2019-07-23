@@ -3,7 +3,7 @@
 ## [ND4J](https://deeplearning4j.org/docs/latest/nd4j-overview)
 
 ## DL4J pipeline
-As with training on a single machine, the final step of a data pipeline should be to produce a DataSet (single features arrays, single label array) 
+As with training on a single machine, the final step of a data pipeline should be to produce a `DataSet` (single features arrays, single label array) 
 or MultiDataSet (one or more feature arrays, one or more label arrays). In the case of DL4J on Spark, the final step of a data pipeline is data in one of 
 the following formats: <br>
 (a) an `RDD<DataSet>`/`JavaRDD<DataSet>` <br>
@@ -12,7 +12,7 @@ the following formats: <br>
 (d) a directory of minibatches in some other format <br>
 
 ## DataSet & MultiDataSet
-MultiDataSet is an interface for representing complex data sets, that have (potentially) multiple inputs and outputs 
+`MultiDataSet` is an interface for representing complex data sets, that have (potentially) multiple inputs and outputs 
 For example, some complex neural network architectures may have multiple independent inputs, and multiple independent outputs. 
 These inputs and outputs need not even be the same opType of data: for example, images in and sequences out, etc
 
@@ -23,16 +23,16 @@ read using a sequence reader, second is basically "group by specified column + s
 [unit tests](https://github.com/deeplearning4j/deeplearning4j/blob/master/datavec/datavec-local/src/test/java/org/datavec/local/transforms/transform/sequence/TestConvertToSequence.java) here.
 
 ### How to handle the word sequence? <br>
-Write a custom SequenceRecordReader that iterates over files and does the character -> integer conversion
-each sequence is a List<List<Writable>>... outer list is over steps, inner list over values within each step
+Write a custom SequenceRecordReader that iterates over files and does the `character -> integer conversion`
+each sequence is a `List<List<Writable>>`... outer list is over steps, inner list over values within each step
 in this case (assuming 1-character-ahead prediction), the inner list has just 
-a List(new IntWritable(character_index), new IntWritable(next_character_index))
-then use RecordReaderMultiDataSetIterator to do the one-hot conversion for the features + labels
+a List`(new IntWritable(character_index), new IntWritable(next_character_index))`
+then use `RecordReaderMultiDataSetIterator` to do the one-hot conversion for the features + labels
 
 
 ## DataVec
 
-DataVec uses an input/output format system (similar in some ways to how Hadoop MapReduce uses 
+DataVec uses an `input/output` format system (similar in some ways to how Hadoop MapReduce uses 
 InputFormat to determine InputSplits and RecordReaders, 
 DataVec also provides RecordReaders to Serialize Data)
 
@@ -69,6 +69,7 @@ one single time step within a sequence features and labels concatenated
 [DataSet Iterator Split train test](https://github.com/eclipse/deeplearning4j/blob/master/deeplearning4j/deeplearning4j-data/deeplearning4j-utility-iterators/src/main/java/org/deeplearning4j/datasets/iterator/DataSetIteratorSplitter.java)
 [MultidatasetIterator](https://gist.github.com/bikashg/436bfa48a8803bbc25f87820b25c1833)
 [MultidatasetWrapperIterator](https://github.com/eclipse/deeplearning4j/blob/bca1df607f6e58ae73baa8e684130bfa7ad8c2e3/deeplearning4j-nn/src/main/java/org/deeplearning4j/datasets/iterator/MultiDataSetWrapperIterator.java#L18)
+
 ## [How can I use a custom data model with Deeplearning4j?](https://stackoverflow.com/questions/48845162/how-can-i-use-a-custom-data-model-with-deeplearning4j)
 In your DataSetIterator implementation you must pass your data and in the implementation of the `next()` method you should 
 return a `DataSet` object comprising the next batch of your training data. It would look like this:
@@ -120,8 +121,8 @@ JavaRDD<DataSet> dataSets = writables.map(new DataVecDataSetFunction(3, 5, -1, t
 ### Network Configurations
 
 #### SparkDl4jMultiLayer and SparkComputationGraph
-Whether you create ‘MultiLayerNetwork’ or ‘ComputationGraph’, you have to provide a network configuration to it through ‘NeuralNetConfiguration.Builder’. ‘NeuralNetConfiguration.Builder’, 
-as the name implies, provides a Builder pattern to configure a network. To create a ‘MultiLayerNetwork’, we build a ‘MultiLayerConfiguraion’ and for ‘ComputationGraph’, 
+Whether you create ‘MultiLayerNetwork’ or ‘ComputationGraph’, you have to provide a network configuration to it through `‘NeuralNetConfiguration.Builder’`.`‘NeuralNetConfiguration.Builder’`, 
+as the name implies, provides a Builder pattern to configure a network. To create a `MultiLayerNetwork`, we build a ‘MultiLayerConfiguraion’ and for ‘ComputationGraph’, 
 it’s ‘ComputationGraphConfiguration’.
 The pattern goes like this: <br>
 > [High Level Configuration] -> [Configure Layers] -> [Pretraining and Backprop Configuration] -> [Build Configuration]
