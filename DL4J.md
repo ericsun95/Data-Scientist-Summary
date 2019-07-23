@@ -36,7 +36,7 @@ DataVec uses an `input/output` format system (similar in some ways to how Hadoop
 InputFormat to determine InputSplits and RecordReaders, 
 DataVec also provides RecordReaders to Serialize Data)
 
-> Define the schema, define the transformProcess
+> Define the schema, define the [transformProcess](https://deeplearning4j.org/api/latest/org/datavec/api/transform/TransformProcess.Builder.html#addConstantColumn-java.lang.String-org.datavec.api.transform.ColumnType-org.datavec.api.writable.Writable-)
 
 E.X <br>
 [Basic Example](https://github.com/kogecoo/dl4j-examples-scala/blob/master/datavec-examples/src/main/scala/org/datavec/transform/basic/BasicDataVecExample.scala)
@@ -130,7 +130,17 @@ The pattern goes like this: <br>
 ### LSTM
 [A Beginner's Guide to LSTMs and Recurrent Neural Networks](https://skymind.ai/wiki/lstm#code)
 [A Guide For Time Series Prediction Using Recurrent Neural Networks (LSTMs)](https://blog.statsbot.co/time-series-prediction-using-recurrent-neural-networks-lstms-807fa6ca7f)
+[time-series-example](https://deeplearning4j.org/tutorials/13-clinical-lstm-time-series-example-using-skil)
+[how-to-predict-when-next-event-occurs-based-on-previous-events](https://stackoverflow.com/questions/7615294/how-to-predict-when-next-event-occurs-based-on-previous-events)
+
 ## Encode & Decode
+[example](https://www.javatips.net/api/dl4j-examples-master/dl4j-examples/src/main/java/org/deeplearning4j/examples/recurrent/encdec/EncoderDecoderLSTM.java)
+
+## Seq2Seq
+[google seq2seq](https://github.com/google/seq2seq)
+[pnp seq2seq](https://github.com/allenai/pnp/blob/master/src/main/scala/org/allenai/pnp/examples/Seq2Seq.scala)
+[seq2seq_conversation](https://isaacchanghau.github.io/post/seq2seq_conversation/)
+
 
 ### Logging
 ```java
@@ -197,5 +207,9 @@ additional overhead of distributed training.
 [CSV Example](https://github.com/deeplearning4j/dl4j-examples/blob/aeb002d151ffcf785a46aba45a722d189de2e0df/dl4j-examples/src/main/java/org/deeplearning4j/examples/dataexamples/CSVExample.java), 
 [Quickstart with Deeplearning4J](https://www.dubs.tech/guides/quickstart-with-dl4j/#using-the-model), 
 [dl4j-tutorials](https://github.com/sjsdfg/dl4j-tutorials)
+[Deeplearning4J Examples for Scala](https://github.com/kogecoo/dl4j-examples-scala)https://deeplearning4j.org/cn/examples-tour
+[dl4j-examples-tour](https://deeplearning4j.org/cn/examples-tour)
+[word2vecsentiment](https://github.com/deeplearning4j/dl4j-examples/tree/master/dl4j-examples/src/main/java/org/deeplearning4j/examples/recurrent/word2vecsentiment)
+[stock prediction](https://github.com/IsaacChanghau/StockPrediction/tree/master/src/main/java/com/isaac/stock)
 
 
