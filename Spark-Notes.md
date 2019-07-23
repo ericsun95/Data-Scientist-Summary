@@ -97,5 +97,5 @@ https://databricks.com/blog/2015/06/22/understanding-your-spark-application-thro
 
 # [Spark Jobs Tuning](https://www.zybuluo.com/xiaop1987/note/76737)
 
-# Apache Zeppelin (https://www.iteblog.com/archives/1575.html)
+# [Apache Zeppelin](https://www.iteblog.com/archives/1575.html)
 [可视化分析工具Apache Zeppelin](https://blog.csdn.net/majianxiong_lzu/article/details/89838774)
