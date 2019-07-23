@@ -11,8 +11,17 @@
 
 
 # Spark Configuration
-SparkConf()
+[SparkConf()](https://spark.apache.org/docs/1.6.0/api/java/org/apache/spark/SparkConf.html)
+Configuration for a Spark application. Used to set various Spark parameters as key-value pairs.
+Most of the time, you would create a SparkConf object with `new SparkConf()`, which will load values from any spark.* Java system properties set in your application as well. In this case, parameters you set directly on the SparkConf object take priority over system properties.
 
+For unit tests, you can also call new SparkConf(false) to skip loading external settings and get the same configuration no matter what the system properties are.
+
+All setter methods in this class support chaining. For example, you can write new SparkConf().setMaster("local").setAppName("My app").
+
+Note that once a SparkConf object is passed to Spark, it is cloned and can no longer be modified by the user. Spark does not support modifying the configuration at runtime.
+
+param: loadDefaults whether to also load values from Java system properties
 # [Spark context](https://www.cnblogs.com/xia520pi/p/8609602.html)<br>
 注释的第一句话就是说SparkContext为Spark的主要入口点，简明扼要，如把Spark集群当作服务端那Spark Driver就是客户端，SparkContext则是客户端的核心；
 如注释所说 SparkContext用于连接Spark集群、创建RDD、累加器（accumlator）、广播变量（broadcast variables），所以说SparkContext为Spark程序的根本
