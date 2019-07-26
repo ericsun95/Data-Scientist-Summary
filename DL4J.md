@@ -48,6 +48,10 @@ E.X <br>
 
 
 ## RecordReader
+
+This class is tasked with parsing a specific vector from a file format and
+converting the data values into a standardized NDArray.
+
 [MapFileRecordReader](https://github.com/deeplearning4j/DataVec/blob/master/datavec-hadoop/src/main/java/org/datavec/hadoop/records/reader/mapfile/MapFileRecordReader.java)
 [TestRecordReaderBytesFunction](https://github.com/deeplearning4j/DataVec/blob/master/datavec-spark/src/test/java/org/datavec/spark/functions/TestRecordReaderBytesFunction.java)
 
@@ -66,45 +70,13 @@ one single time step within a sequence features and labels concatenated
 
 
 ## DataSet Iterator
+This class works with RecordReaders to take the produced NDArray for
+each record and create mini-batches of NDArrays for training.<br>
+
 [DataSet Iterator Split train test](https://github.com/eclipse/deeplearning4j/blob/master/deeplearning4j/deeplearning4j-data/deeplearning4j-utility-iterators/src/main/java/org/deeplearning4j/datasets/iterator/DataSetIteratorSplitter.java)
 [MultidatasetIterator](https://gist.github.com/bikashg/436bfa48a8803bbc25f87820b25c1833)
 [MultidatasetWrapperIterator](https://github.com/eclipse/deeplearning4j/blob/bca1df607f6e58ae73baa8e684130bfa7ad8c2e3/deeplearning4j-nn/src/main/java/org/deeplearning4j/datasets/iterator/MultiDataSetWrapperIterator.java#L18)
 
-## [How can I use a custom data model with Deeplearning4j?](https://stackoverflow.com/questions/48845162/how-can-i-use-a-custom-data-model-with-deeplearning4j)
-In your DataSetIterator implementation you must pass your data and in the implementation of the `next()` method you should 
-return a `DataSet` object comprising the next batch of your training data. It would look like this:
-```java
-public class MyCustomIterator implements DataSetIterator {
-    private INDArray inputs, desiredOutputs;
-    private int itPosition = 0; // the iterator position in the set.
-
-    public MyCustomIterator(float[] inputsArray,
-                            float[] desiredOutputsArray,
-                            int numSamples,
-                            int inputDim,
-                            int outputDim) {
-        inputs = Nd4j.create(inputsArray, new int[]{numSamples, inputDim});
-        desiredOutputs = Nd4j.create(desiredOutputsArray, new int[]{numSamples, outputDim});
-    }
-
-    public DataSet next(int num) {
-        // get a view containing the next num samples and desired outs.
-        INDArray dsInput = inputs.get(
-            NDArrayIndex.interval(itPosition, itPosition + num),
-            NDArrayIndex.all());
-        INDArray dsDesired = desiredOutputs.get(
-            NDArrayIndex.interval(itPosition, itPosition + num),
-            NDArrayIndex.all());
-
-        itPosition += num;
-
-        return new DataSet(dsInput, dsDesired);
-    }
-
-    // implement the remaining virtual methods...
-
-}
-```
 
 ### Writable to DataSet
 ```java
@@ -159,7 +131,21 @@ log.info("Build model....");
 - batch size 每一步抓取的样例数量 <br>
 - num Epochs 一个epoch指将给定数据集全部处理一遍的周期 - 遍历数据集的次数
 
-
+#### traiingning and test process
+```java
+for ( int n = 0; n < nEpochs; n++) {
+model.fit( trainingDataIter );
+}
+System.out.println("Evaluate model....");
+Evaluation eval = new Evaluation(numOutputs);
+while(testIter.hasNext()){
+DataSet t = testIter.next();
+INDArray features = t.getFeatureMatrix();
+INDArray lables = t.getLabels();
+INDArray predicted = model.output(features,false);
+eval.eval(lables, predicted);
+}
+```
 
 
 #### [Visualizing Network Training with the Deeplearning4j Training UI](https://deeplearning4j.org/docs/latest/deeplearning4j-nn-visualization)
